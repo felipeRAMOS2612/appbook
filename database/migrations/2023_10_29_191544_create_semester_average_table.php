@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('semester_averages', function (Blueprint $table) {
+        Schema::create('semester_average', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('semesters_id')->constrained();
+            $table->foreignId('averages_id')->constrained();
             $table->timestamps();
         });
     }
@@ -22,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('semester_averages');
+        Schema::dropIfExists('semester_average');
     }
 };
