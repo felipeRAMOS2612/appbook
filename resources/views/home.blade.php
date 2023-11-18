@@ -32,29 +32,31 @@
     <div class="container mx-auto mt-8">
         <!-- Sección de Noticias con Carrusel -->
         <section class="mb-8">
-            <!-- Carrusel de Imágenes -->
-            <div x-data="{ slide: 0, totalSlides: 3 }">
-                <div class="relative overflow-hidden">
-                    <div class="flex transition-transform duration-300 ease-in-out"
-                        style="transform: translateX(-${slide * 100}%)">
-                        <!-- Imágenes del carrusel -->
-                        <div class="w-full">
-                            <img src="{{ asset('images/foto.png') }}" alt="Imagen 1" class="w-full h-64 object-cover">
-                        </div>
 
-                        <!-- Agrega más imágenes según sea necesario -->
-                    </div>
+            <div x-data="{ currentSlide: 0, totalSlides: 4 }" class="carousel flex overflow-hidden">
+                <div x-show="currentSlide === 0" class="carousel-item transition-transform duration-300 ease-in-out transform">
+                    <!-- Contenido de la primera diapositiva -->
+                    <img src="images/foto.png" alt="bilbioteca">
                 </div>
-
-                <!-- Controles del carrusel -->
-                <div class="flex mt-2">
-                    <button @click="slide = (slide - 1 + totalSlides) % totalSlides"
-                        class="mr-2 px-2 py-1 bg-blue-500 text-white">Anterior</button>
-                    <button @click="slide = (slide + 1) % totalSlides"
-                        class="px-2 py-1 bg-blue-500 text-white">Siguiente</button>
+                <div x-show="currentSlide === 1" class="carousel-item transition-transform duration-300 ease-in-out transform">
+                    <!-- Contenido de la segunda diapositiva -->
+                    <img src="images/computacion.jpg" alt="sala de computación">
                 </div>
+                <div x-show="currentSlide === 2" class="carousel-item transition-transform duration-300 ease-in-out transform">
+                    <!-- Contenido de la segunda diapositiva -->
+                    <img src="images/liceo.jpg" alt="liceo">
+                </div>
+                <div x-show="currentSlide === 3" class="carousel-item transition-transform duration-300 ease-in-out transform">
+                    <!-- Contenido de la segunda diapositiva -->
+                    <img src="images/gimnasio.jpg" alt="gimnasio">
+                </div>
+                <!-- Agrega más diapositivas y lógica de navegación -->
+                <div class="flex justify-center mt-4">
+                    <button class="px-4 py-2 border rounded bg-white text-gray-800" @click="currentSlide = (currentSlide - 1 + totalSlides) % totalSlides">Anterior</button>
+                    <button class="px-4 py-2 border rounded bg-white text-gray-800" @click="currentSlide = (currentSlide + 1) % totalSlides">Siguiente</button>
+                </div>            
             </div>
-
+            
             <!-- Tres Rectángulos -->
             <div class="flex mt-4">
                 <!-- Primer Rectángulo - Ver Notas -->
@@ -62,7 +64,8 @@
                 <div class="Rectangle3 relative"
                     style="width: 326px; height: 252px; background: #484BB4; overflow: hidden; margin-right: 10px;">
                     <img class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-1/2 h-1/2 object-cover"
-                        src="{{ asset('images/tablero.png') }}" alt="Descripción de la imagen">
+                        src="{{ asset('images/tablero.png') }}" alt="Descripción de la imagen" >
+
                 </div>
 
                 <!-- Segundo Rectángulo -->
@@ -115,8 +118,7 @@
     </div>
 
     <!-- --footer -->
-<!-- Footer Start -->
-<footer class=" bg-blue-900  relative text-gray-200 ">
+    <footer class=" bg-blue-900  relative text-gray-200 ">
     <div class="container mx-auto px-6">
         <div class="grid grid-cols-12">
             <div class="col-span-12">
@@ -283,7 +285,7 @@
         </div>
         <!--end container-->
     </div>
-</footer>
-<!--end footer-->
+    </footer>
+<!--footer-->
 </body>
 </html>
