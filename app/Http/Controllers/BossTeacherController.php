@@ -13,7 +13,7 @@ class BossTeacherController extends Controller
      */
     public function index()
     {
-        //
+        //  
     }
 
     /**
