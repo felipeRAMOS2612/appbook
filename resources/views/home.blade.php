@@ -1,30 +1,39 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Intranet</title>
+    <title>HOME</title>
     <!-- Agrega enlaces a los estilos de Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
 </head>
+
 <body class="bg-gray-100 mx-auto">
     <!-- Navbar -->
-    <nav class="Navbar mx-auto" style="width: 1280px; height: 77px; position: relative; background: rgba(64, 64, 64, 0); border-radius: 2px; overflow: hidden; border: 1px rgba(255, 255, 255, 0.10) solid">
+    <nav class="Navbar mx-auto"
+        style="width: 1280px; height: 77px; position: relative; background: rgba(64, 64, 64, 0); border-radius: 2px; overflow: hidden; border: 1px rgba(255, 255, 255, 0.10) solid">
         <div class="Icon Person" style="width: 59px; height: 58px; left: 1201px; top: 12px; position: absolute">
-            <div class="Vector" style="width: 44.25px; height: 48.33px; left: 7.38px; top: 4.83px; position: absolute; background: #FFFF;">
+            <div class="Vector"
+                style="width: 44.25px; height: 48.33px; left: 7.38px; top: 4.83px; position: absolute; background: #FFFF;">
                 <!-- Cambié background a background-image para cargar la imagen -->
-                <img src="{{ asset('images/iconperson.png') }}" style="width: 100%; height: 100%;" alt="Icono de Persona">
+                <img src="{{ asset('images/iconperson.png') }}" style="width: 100%; height: 100%;"
+                    alt="Icono de Persona">
             </div>
         </div>
         <div class="ContainerLogo" style="width: 265px; height: 71px; left: 0px; top: 6px; position: absolute"></div>
-        <img class="Logo" style="width: 240px; height: 131px; left: -20px; top: -34px; position: absolute; border-radius: 19px" src="{{ asset('images/logo.png') }}" alt="Logo de la aplicación">
+        <img class="Logo"
+            style="width: 240px; height: 131px; left: -20px; top: -34px; position: absolute; border-radius: 19px"
+            src="{{ asset('images/logo.png') }}" alt="Logo de la aplicación">
     </nav>
 
     <!-- Contenido principal -->
     <div class="container mx-auto mt-8">
         <!-- Sección de Noticias con Carrusel -->
-        <div x-data="{ currentSlide: 0, totalSlides: 4 }" class="carousel flex overflow-hidden">
+        <section class="mb-8">
+
+            <div x-data="{ currentSlide: 0, totalSlides: 4 }" class="carousel flex overflow-hidden">
                 <div x-show="currentSlide === 0" class="carousel-item transition-transform duration-300 ease-in-out transform">
                     <!-- Contenido de la primera diapositiva -->
                     <img src="images/foto.png" alt="bilbioteca">
@@ -34,7 +43,7 @@
                     <img src="images/computacion.jpg" alt="sala de computación">
                 </div>
                 <div x-show="currentSlide === 2" class="carousel-item transition-transform duration-300 ease-in-out transform">
-                    <!-- Contenido de la segunda diapositiva -->
+                    <!-- Contenido de la tercera diapositiva -->
                     <img src="images/liceo.jpg" alt="liceo">
                 </div>
                 <div x-show="currentSlide === 3" class="carousel-item transition-transform duration-300 ease-in-out transform">
@@ -45,58 +54,97 @@
                 <div class="flex justify-center mt-4">
                     <button class="px-4 py-2 border rounded bg-white text-gray-800" @click="currentSlide = (currentSlide - 1 + totalSlides) % totalSlides">Anterior</button>
                     <button class="px-4 py-2 border rounded bg-white text-gray-800" @click="currentSlide = (currentSlide + 1) % totalSlides">Siguiente</button>
-                </div>
+                </div>            
             </div>
-    </div>
-
-            <!-- Tres Rectángulos -->
-            <div class="flex mt-4">
-                <!-- Primer Rectángulo - Ver Notas -->
-            <!-- Rectángulo 1 -->
-            <div class="Rectangle3 relative" style="width: 326px; height: 252px; background: #484BB4; overflow: hidden; margin-right: 10px;">
-                <img class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-1/2 h-1/2 object-cover" src="{{ asset('images/tablero.png') }}" alt="Descripción de la imagen"> 
-            </div>                                                                                                                                                                       
-
-                <!-- Segundo Rectángulo -->
-            <!-- Rectángulo 2 -->
-            <div class="Rectangle4 relative" style="width: 326px; height: 252px; background: #FFD14C; overflow: hidden; margin-right: 10px;">
-                <img class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-1/2 h-1/2 object-cover" src="{{ asset('images/academic.png') }}" alt="Descripción de la imagen"> 
-            </div>
-
-                <!-- Tercer Rectángulo -->
-            <!-- Rectángulo 3 -->
-            <div class="Rectangle5 relative" style="width: 326px; height: 252px; background: #D9D9D9; overflow: hidden; margin-right: 10px;">
-                <img class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-1/2 h-1/2 object-cover" src="{{ asset('images/person.png') }}" alt="Descripción de la imagen">
-            </div>
+            
+            
         </section>
 
-        <!-- Servicios -->
+        <!-- Tres Rectángulos -->
+            <div class="flex mt-4">
+                <!-- Primer Rectángulo - Ver Notas -->
+                <!-- Rectángulo 1 -->
 
-        <div class="Rectangle6 relative" style="width: 595px; height: 845px; background: #F6F6F6; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 10px">
-            
-            <div class="Servicios text-black text-5xl font-bold font-['Inter'] mb-5">Servicios</div>
-            
-            <div class="Rectangle9 mx-auto mb-5" style="width: 555px; height: 82px; background: #8F00FF; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 10px">
-                <div class="MiPerfil text-white text-xl font-bold font-['Inter']">Mi perfil</div>
+                <a href="/tablero" >            
+                    <div class="Rectangle3 relative transition-transform transform-gpu  hover:scale-105"
+                        style="width: 326px; height: 252px; background: #484BB4; overflow: hidden; margin-right: 10px;">
+
+                        <img class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-1/2 h-1/2 object-cover"
+                            src="{{ asset('images/tablero.png') }}" alt="Descripción de la imagen" >
+
+                    </div>
+                </a>
+                    <!-- Segundo Rectángulo -->
+                    <!-- Rectángulo 2 -->
+                <a href="/notas" >
+                    <div class="Rectangle4 relative transition-transform transform-gpu  hover:scale-105"
+                        style="width: 326px; height: 252px; background: #FFD14C; overflow: hidden; margin-right: 10px;">
+                        <img class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-1/2 h-1/2 object-cover"
+                            src="{{ asset('images/academic.png') }}" alt="Descripción de la imagen">
+                    </div>
+                </a>
+
+                    <!-- Tercer Rectángulo -->
+                    <!-- Rectángulo 3 -->
+                <a href="Miperfil">
+                    <div class="Rectangle5 relative transition-transform transform-gpu  hover:scale-105"
+                        style="width: 326px; height: 252px; background: #D9D9D9; overflow: hidden; margin-right: 10px;">
+                        <img class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-1/2 h-1/2 object-cover"
+                            src="{{ asset('images/person.png') }}" alt="Descripción de la imagen">
+                    </div>
+                </a>
             </div>
-            <div class="Rectangle11 mx-auto mb-5" style="width: 555px; height: 82px; background: #FFD14C; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 10px">
-                <div class="MisAsignaturas text-black text-xl font-bold font-['Inter']">Mis asignaturas</div>
+        
+            <!-- Otras secciones o contenido según sea necesario -->
+        <div class="Rectangle6 relative"
+            style="width: 595px; height: 845px; background: #F6F6F6; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 10px">
+            <div class="Servicios">
+                <div class="Servicios mb-6 text-black text-5xl font-bold font-['Inter']">Servicios</div>
             </div>
-            <div class="Rectangle10 mx-auto mb-5" style="width: 555px; height: 82px; background: #484BB4; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 10px">
-                <div class="MisNotas text-white text-xl font-bold font-['Inter']">Mis notas</div>
-            </div>
-            <div class="Rectangle12 mx-auto mb-5" style="width: 555px; height: 82px; background: #8F00FF; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 10px">
-                <div class="MisObservaciones text-white text-xl font-bold font-['Inter']">mis observaciones</div>
-            </div>
-            <div class="Rectangle13 mx-auto mb-5" style="width: 555px; height: 82px; background: #FFD14C; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 10px">
-                <div class="Profesores text-black text-xl font-bold font-['Inter']">Profesores</div>
-            </div>
+            <a href="/mi-perfil">
+                    <div class="Rectangle9 mx-auto mb-5 relative transition-transform transform-gpu hover:scale-105"
+                        style="width: 555px; height: 82px; background: #8F00FF; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 10px">
+                    <div class="MiPerfil text-white text-xl font-bold font-['Inter'] absolute left-0 top-1/2 transform -translate-y-1/2">
+                    Mi perfil
+                    </div>
+                </div>
+            </a>
+            <a href="/mis-asignaturas">
+            <div class="Rectangle10 mx-auto mb-5 relative transition-transform transform-gpu hover:scale-105"
+                    style="width: 555px; height: 82px; background: #FFD14C; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 10px">
+                    <div class="MisAsignaturas text-black text-xl font-bold font-['Inter'] absolute left-0 top-1/2 transform -translate-y-1/2">
+                    Mis asignaturas
+                    </div>
+                </div>
+            </a>
+            <a href="/mis-notas">
+                <div class="Rectangle11 mx-auto mb-5 relative transition-transform transform-gpu hover:scale-105"
+                    style="width: 555px; height: 82px; background: #484BB4; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 10px">
+                    <div class="MisNotas text-white text-xl font-bold font-['Inter'] absolute left-0 top-1/2 transform -translate-y-1/2">
+                        Mis notas
+                    </div>
+                </div>
+            </a>
+            <a href="/mis-observaciones">
+                <div class="Rectangle12 mx-auto mb-5 relative transition-transform transform-gpu hover:scale-105"
+                    style="width: 555px; height: 82px; background: #8F00FF; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 10px">
+                    <div class="MisObservaciones text-white text-xl font-bold font-['Inter'] absolute left-0 top-1/2 transform -translate-y-1/2">
+                        Mis observaciones
+                    </div>
+                </div>
+            </a>
+            <a href="/profesores">
+                <div class="Rectangle13 mx-auto mb-5 relative transition-transform transform-gpu hover:scale-105"
+                    style="width: 555px; height: 82px; background: #FFD14C; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 10px">
+                    <div class="Profesores text-black text-xl font-bold font-['Inter'] absolute left-0 top-1/2 transform -translate-y-1/2">
+                        Profesores
+                    </div>
+                </div>
+            </a>    
         </div>
-
     </div>
 
     <!-- --footer -->
-    <!-- Footer Start -->
     <footer class=" bg-blue-900  relative text-gray-200 ">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-12">
@@ -112,7 +160,7 @@
                                 </p>      
                                 <ul class="list-none mt-6">
                                     <li class="inline">
-                                        <a href=""
+                                        <a href="http://www.facebook.com/"
                                             class="font-semibold tracking-wide align-middle transition duration-500 ease-in-out p-1 h-9 w-9 inline-flex items-center text-center justify-center text-sm border !border-gray-800 rounded-md hover:border-yellow-600  hover:bg-yellow-600 ">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-gray-300"
                                                 viewBox="0 0 24 24">
@@ -122,7 +170,7 @@
                                         </a>
                                     </li>
                                     <li class="inline">
-                                        <a href=""
+                                        <a href="http://www.twitter.com/"
                                             class="font-semibold tracking-wide align-middle transition duration-500 ease-in-out p-1 h-9 w-9 inline-flex items-center text-center justify-center text-sm border !border-gray-800 rounded-md hover:border-yellow-600  hover:bg-yellow-600 ">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-gray-300"
                                                 viewBox="0 0 24 24">
@@ -132,7 +180,7 @@
                                         </a>
                                     </li>
                                     <li class="inline">
-                                        <a href=""
+                                        <a href="https://cl.linkedin.com/"
                                             class="font-semibold tracking-wide align-middle transition duration-500 ease-in-out p-1 h-9 w-9 inline-flex items-center text-center justify-center text-sm border !border-gray-800 rounded-md hover:border-yellow-600  hover:bg-yellow-600 ">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-gray-300"
                                                 viewBox="0 0 24 24">
@@ -142,7 +190,7 @@
                                         </a>
                                     </li>
                                     <li class="inline">
-                                        <a href=""
+                                        <a href="http://www.instagram.com/"
                                             class="font-semibold tracking-wide align-middle transition duration-500 ease-in-out p-0 h-9 w-9 inline-flex items-center text-center justify-center text-sm border !border-gray-800 rounded-md hover:border-yellow-600  hover:bg-yellow-600 ">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-gray-300"
                                                 viewBox="0 0 24 24">
@@ -155,7 +203,6 @@
                                 <!--end icon-->
                             </div>
                             <!--end col-->
-
                             <div class="lg:col-span-2 md:col-span-4">
                                 <h5 class="tracking-[1px] text-gray-100 font-semibold">
                                     Servicios
@@ -266,5 +313,6 @@
             <!--end container-->
         </div>
     </footer>
+<!--footer-->
 </body>
 </html>

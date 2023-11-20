@@ -7,5 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class BossTeacher extends Model
 {
+    protected $fillable = [
+        'courses_id',
+        'teachers_id',
+    ];
     use HasFactory;
 }
