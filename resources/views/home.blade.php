@@ -31,37 +31,44 @@
     <!-- Contenido principal -->
     <div class="container mx-auto mt-8">
         <!-- Sección de Noticias con Carrusel -->
-        <section class="mb-8">
+        <section class="mb-8 ">
+            <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+                <div x-data="{ currentSlide: 0, totalSlides: 4 }" class="carousel flex overflow-hidden">
+                    <div x-show="currentSlide === 0" class="carousel-item transition-transform duration-300 ease-in-out transform">
+                        <!-- Contenido de la primera diapositiva -->
+                        <img src="images/foto.png" alt="bilbioteca">
+                    </div>
+                    <div x-show="currentSlide === 1" class="carousel-item transition-transform duration-300 ease-in-out transform">
+                        <!-- Contenido de la segunda diapositiva -->
+                        <img src="images/computacion.jpg" alt="sala de computación">
+                    </div>
+                    <div x-show="currentSlide === 2" class="carousel-item transition-transform duration-300 ease-in-out transform">
+                        <!-- Contenido de la tercera diapositiva -->
+                        <img src="images/liceo.jpg" alt="liceo">
+                    </div>
+                    <div x-show="currentSlide === 3" class="carousel-item transition-transform duration-300 ease-in-out transform">
+                        <!-- Contenido de la segunda diapositiva -->
+                        <img src="images/gimnasio.jpg" alt="gimnasio">
+                    </div>
+                    <!-- Agrega más diapositivas y lógica de navegación -->
+                    <div class="flex justify-center mt-4">
+                    <button class="absolute top-1/2 left-4 transform -translate-y-1/2 z-30 flex items-center justify-center h-10 w-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none cursor-pointer" @click="currentSlide = (currentSlide - 1 + totalSlides) % totalSlides">
+                        <span class="sr-only">Previous</span>
+                        <img src="images/previous.png" alt="icono">
+                        </button>
 
-            <div x-data="{ currentSlide: 0, totalSlides: 4 }" class="carousel flex overflow-hidden">
-                <div x-show="currentSlide === 0" class="carousel-item transition-transform duration-300 ease-in-out transform">
-                    <!-- Contenido de la primera diapositiva -->
-                    <img src="images/foto.png" alt="bilbioteca">
-                </div>
-                <div x-show="currentSlide === 1" class="carousel-item transition-transform duration-300 ease-in-out transform">
-                    <!-- Contenido de la segunda diapositiva -->
-                    <img src="images/computacion.jpg" alt="sala de computación">
-                </div>
-                <div x-show="currentSlide === 2" class="carousel-item transition-transform duration-300 ease-in-out transform">
-                    <!-- Contenido de la tercera diapositiva -->
-                    <img src="images/liceo.jpg" alt="liceo">
-                </div>
-                <div x-show="currentSlide === 3" class="carousel-item transition-transform duration-300 ease-in-out transform">
-                    <!-- Contenido de la segunda diapositiva -->
-                    <img src="images/gimnasio.jpg" alt="gimnasio">
-                </div>
-                <!-- Agrega más diapositivas y lógica de navegación -->
-                <div class="flex justify-center mt-4">
-                    <button class="px-4 py-2 border rounded bg-white text-gray-800" @click="currentSlide = (currentSlide - 1 + totalSlides) % totalSlides">Anterior</button>
-                    <button class="px-4 py-2 border rounded bg-white text-gray-800" @click="currentSlide = (currentSlide + 1) % totalSlides">Siguiente</button>
-                </div>            
+                        <!-- Botón Siguiente -->
+                        <button class="absolute top-1/2 right-4 transform -translate-y-1/2 z-30 flex items-center justify-center h-10 w-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none cursor-pointer" @click="currentSlide = (currentSlide + 1) % totalSlides">
+                        <span class="sr-only">Next</span>
+                        <img src="images/next.png" alt="icono">
+                        </button>
+                    </div>            
+                </div>   
             </div>
-            
-            
         </section>
 
-        <!-- Tres Rectángulos -->
-            <div class="flex mt-4">
+            <!-- Tres Rectángulos -->
+            <div class="flex mt-4 mb-8">
                 <!-- Primer Rectángulo - Ver Notas -->
                 <!-- Rectángulo 1 -->
 
@@ -97,7 +104,7 @@
         
             <!-- Otras secciones o contenido según sea necesario -->
         <div class="Rectangle6 relative"
-            style="width: 595px; height: 845px; background: #F6F6F6; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 10px">
+            style="width: 595px; height: 645px; background: #F6F6F6; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 10px">
             <div class="Servicios">
                 <div class="Servicios mb-6 text-black text-5xl font-bold font-['Inter']">Servicios</div>
             </div>
@@ -143,7 +150,7 @@
             </a>    
         </div>
     </div>
-
+    <br>
     <!-- --footer -->
     <footer class=" bg-blue-900  relative text-gray-200 ">
         <div class="container mx-auto px-6">
