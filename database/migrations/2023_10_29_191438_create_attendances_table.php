@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('students_id')->constrained();
             $table->foreignId('subjects_id')->constrained();
-            $table->string('attendance');
+            $table->boolean('attendance');
             $table->timestamps();
         });
     }

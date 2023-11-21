@@ -13,7 +13,7 @@ class BossTeacherController extends Controller
      */
     public function index()
     {
-        //
+        return view('bossteacher.index');
     }
 
     /**
@@ -29,7 +29,8 @@ class BossTeacherController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        BossTeacher::create($data);
     }
 
     /**

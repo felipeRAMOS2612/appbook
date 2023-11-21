@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Teacher;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\TeacherRequest;
 
 class TeacherController extends Controller
 {
@@ -13,7 +14,7 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(Teacher::all());
     }
 
     /**
@@ -21,15 +22,16 @@ class TeacherController extends Controller
      */
     public function create()
     {
-        //
+        return view('student.login');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(TeacherRequest $request)
     {
-        //
+        $data = $request->all();
+        return response()->json($data, 200);
     }
 
     /**
@@ -37,7 +39,9 @@ class TeacherController extends Controller
      */
     public function show(Teacher $teacher)
     {
-        //
+        $teacher = Teacher::all()->where($teacher);
+
+        return view('teacher.mi-perfil', compact('teacher'));
     }
 
     /**

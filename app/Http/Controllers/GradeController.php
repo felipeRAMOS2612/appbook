@@ -13,7 +13,7 @@ class GradeController extends Controller
      */
     public function index()
     {
-        //
+        return view('teacher.notas.list-notas');
     }
 
     /**

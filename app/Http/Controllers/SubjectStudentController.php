@@ -13,23 +13,8 @@ class SubjectStudentController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
+        $signatures = SubjectStudent::all();
+        return view('mis-asignaturas', compact('signatures'));
     }
 
     /**
@@ -37,30 +22,9 @@ class SubjectStudentController extends Controller
      */
     public function show(SubjectStudent $subjectStudent)
     {
-        //
+        $specified_signature = SubjectStudent::all()->where($subjectStudent)->id();
+
+        return view('', compact('specified_signature'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(SubjectStudent $subjectStudent)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, SubjectStudent $subjectStudent)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(SubjectStudent $subjectStudent)
-    {
-        //
-    }
 }

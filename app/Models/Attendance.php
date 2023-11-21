@@ -10,8 +10,7 @@ class Attendance extends Model
     protected $fillable = [
         'students_id',
         'subjects_id',
-        'attendances',
-        'date',
+        'attendances'
     ];
     use HasFactory;
 }

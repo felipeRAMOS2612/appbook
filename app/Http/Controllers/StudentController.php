@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Student;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class StudentController extends Controller
 {
@@ -13,7 +14,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(Student::all());
     }
 
     /**
@@ -21,7 +22,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        return view('student.create');
     }
 
     /**
@@ -29,7 +30,11 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $data['password'] = Hash::make($data['password']);
+        Student::create($data);
+
+        return view('student.create');
     }
 
     /**
@@ -37,7 +42,7 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
-        //
+        return view('student.show');
     }
 
     /**
@@ -61,6 +66,7 @@ class StudentController extends Controller
      */
     public function destroy(Student $student)
     {
-        //
+        $student->delete();
+        return view('dashboard');
     }
 }

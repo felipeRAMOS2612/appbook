@@ -3,7 +3,9 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Teacher;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,5 +20,14 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        Teacher::create([
+            "name" => "Test User",
+            "last_name" => "Test User",
+            "email" => "test@example.com",
+            "rut"=>"111111-1",
+            "password" => Hash::make('123456'),
+            "phone"=>"123456",
+        ]);
     }
 }
