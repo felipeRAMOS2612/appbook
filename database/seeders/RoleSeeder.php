@@ -19,7 +19,7 @@ class RoleSeeder extends Seeder
         $student = Role::create(["name"=> 'student']);
         $teacher = Role::create(["name"=> 'teacher']);
 
-        Permission::create(['name' => 'courses.index'])->syncRoles([$teacher, $student]);
+        Permission::create(['name' => 'courses.index'])->syncRoles([$teacher, $student, $admin]);
         Permission::create(['name' => 'course-student.index'])->syncRoles([$admin, $teacher]);
         Permission::create(['name' => 'course-student.create'])->syncRoles([$admin, $teacher]);
         Permission::create(['name' => 'course-student.store'])->syncRoles([$admin, $teacher]);
@@ -42,12 +42,12 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'subject.edit'])->syncRoles([$admin]);
         Permission::create(['name' => 'subject.index'])->syncRoles([$admin, $teacher, $student]);
         Permission::create(['name' => 'subject.store'])->syncRoles([$admin]);
-        Permission::create(['name' => 'grade.destroy'])->syncRoles([$admin, $teacher]);
-        Permission::create(['name' => 'grade.create'])->syncRoles([$teacher, $admin]);
-        Permission::create(['name' => 'grade.update'])->syncRoles([$teacher, $admin]);
-        Permission::create(['name' => 'grade.edit'])->syncRoles([$teacher, $admin]);
+        Permission::create(['name' => 'grade.destroy'])->syncRoles([$teacher]);
+        Permission::create(['name' => 'grade.create'])->syncRoles([$teacher]);
+        Permission::create(['name' => 'grade.update'])->syncRoles([$teacher]);
+        Permission::create(['name' => 'grade.edit'])->syncRoles([$teacher]);
         Permission::create(['name' => 'grade.index'])->syncRoles([$admin, $teacher, $student]);
-        Permission::create(['name' => 'grade.store'])->syncRoles([$teacher, $admin]);
+        Permission::create(['name' => 'grade.store'])->syncRoles([$teacher]);
         Permission::create(['name' => 'grade.show'])->syncRoles([$admin, $teacher, $student]);
         
     }

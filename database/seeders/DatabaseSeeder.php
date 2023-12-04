@@ -20,5 +20,11 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call(RoleSeeder::class);
+
+        $this->call(SemesterSeeder::class);
+
+        $this->call(CourseSeeder::class);
+
+        $this->call(AdminSeeder::class);
     }
 }

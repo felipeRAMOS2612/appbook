@@ -15,7 +15,7 @@ class TeacherController extends Controller
     public function index()
     {
         $subjects = Subject::all();
-        $teachers = Teacher::all();
+        $teachers = Teacher::with('subjects')->get();
         return view('admin.teacher.list', compact('teachers', 'subjects'));
     }
 

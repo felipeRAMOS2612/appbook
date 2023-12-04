@@ -11,5 +11,11 @@ class SubjectTeacher extends Model
     protected $fillable = ['teacher_id', 'subject_id'];
     use HasFactory;
 
-    
+    public function subject(){
+        return $this->hasMany(Subject::class);
+    }
+
+    public function teachers(){
+        return $this->hasMany(Teacher::class);
+    }
 }

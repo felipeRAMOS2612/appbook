@@ -60,7 +60,7 @@ class CourseStudentController extends Controller
 
         CourseStudent::create($data);
 
-        return view('admin.student.list', compact('data'));
+        return redirect()->route('student');
     }
 
     /**

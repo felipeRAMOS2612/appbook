@@ -3,14 +3,14 @@
         <img src="/banner/dashboard/banner-home.jpg" class=" h-[32rem] w-full object-cover">
         <h1 
         class="absolute md:text-[96px] text-5xl font-bold text-white text-center" style="filter: drop-shadow(10px 10px 10px black)">
-            Bienvenido 
+            Bienvenid@
             {{Auth::user()->name}}
         </h1> 
     </div>
 
-    <section class="flex flex-wrap justify-between [&>div]:min-w-[280px]">
+    <section class="flex flex-wrap justify-between [&>a]:min-w-[280px]">
         @can('student.create')
-        <a href="{{route('teacher.index')}}" class="bg-[#696de0] text-center grid grow flex-1 h-60 py-5">
+        <a href="{{route('teacher.index')}}" class="bg-[#bababa] text-center grid grow flex-1 h-60 py-5">
             <div>
                 <h1 class="text-5xl text-black font-semibold">Profesores</h1>
             </div>

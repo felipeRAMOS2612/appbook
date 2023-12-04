@@ -23,7 +23,7 @@ class SubjectTeacherController extends Controller
      */
     public function create()
     {
-        $teachers = Teacher::all();
+        $teachers = Teacher::with('subjectTeacher')->get();
         $subjects = Subject::all();
         return view('admin.teacher.list', compact('tecahers', 'subjects'));
     }

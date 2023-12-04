@@ -46,7 +46,9 @@
                                 {{$teacher->rut}}
                             </td>
                             <td class="px-6 py-4">
-                                {{$teacher->course ? $teacher->course : 'No tiene materia asociada'}}
+                                @foreach ($teacher->subjects as $subject)
+                                    <li>{{ $subject->name }}</li>
+                                @endforeach
                             </td>
                             <td class="pr-2 py-4 flex justify-end items-end flex-col gap-3">
                                 <div class="flex w-24 text-center">
@@ -73,7 +75,7 @@
         </section>
 
         <div class="col-span-2 flex justify-end">
-            <button type="submit" class="bg-green-500 py-2 px-12 shadow-lg text-white rounded shadow hover:scale-105 transition-all">
+            <button type="submit" class="bg-green-500 py-2 px-12 text-white rounded shadow hover:scale-105 transition-all">
                 Agregar
             </button>
         </div>
