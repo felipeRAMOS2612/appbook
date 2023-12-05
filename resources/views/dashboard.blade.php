@@ -21,7 +21,7 @@
             </div>
         </a>
         @endcan
-        @can('grade.update')
+        @role('teacher')
         <a href="{{route('grade.index')}}" class="bg-[#696de0] text-center grid grow flex-1 h-60 py-5">
             <div>
                 <h1 class="text-5xl text-black font-semibold">Notas</h1>
@@ -32,7 +32,20 @@
                   </svg>
             </div>
         </a>
-        @endcan
+        @endrole
+
+        @role('student')
+        <a href="{{route('generated::f2KFWY8UHuqrdGOu')}}" class="bg-[#696de0] text-center grid grow flex-1 h-60 py-5">
+            <div>
+                <h1 class="text-5xl text-black font-semibold">Notas</h1>
+            </div>
+            <div class=" w-full flex justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="102" height="97" viewBox="0 0 102 97" fill="none">
+                    <path d="M82.875 7.57812H28.6875C24.8833 7.57813 21.2349 9.01526 18.5449 11.5734C15.855 14.1315 14.3438 17.601 14.3438 21.2188V84.875C14.3438 86.0809 14.8475 87.2374 15.7441 88.0901C16.6408 88.9428 17.8569 89.4219 19.125 89.4219H76.5C77.7681 89.4219 78.9842 88.9428 79.8809 88.0901C80.7775 87.2374 81.2812 86.0809 81.2812 84.875C81.2812 83.6691 80.7775 82.5126 79.8809 81.6599C78.9842 80.8072 77.7681 80.3281 76.5 80.3281H23.9062V78.8125C23.9062 77.6066 24.41 76.4501 25.3066 75.5974C26.2033 74.7447 27.4194 74.2656 28.6875 74.2656H82.875C84.1431 74.2656 85.3592 73.7866 86.2559 72.9339C87.1525 72.0812 87.6562 70.9247 87.6562 69.7188V12.125C87.6562 10.9191 87.1525 9.76258 86.2559 8.90987C85.3592 8.05717 84.1431 7.57812 82.875 7.57812ZM78.0938 65.1719H28.6875C27.0584 65.1689 25.441 65.433 23.9062 65.9524V21.2188C23.9062 20.0128 24.41 18.8563 25.3066 18.0036C26.2033 17.1509 27.4194 16.6719 28.6875 16.6719H78.0938V65.1719Z" fill="black"/>
+                  </svg>
+            </div>
+        </a>
+        @endrole
         @can('subject.index')
         <a href="{{route('subject.index')}}" class="bg-[#FFD14C] grid text-center flex-1 grow h-60 py-5">
             <div>

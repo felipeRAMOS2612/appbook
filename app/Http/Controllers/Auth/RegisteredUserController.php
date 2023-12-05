@@ -17,6 +17,10 @@ use App\Providers\RouteServiceProvider;
 
 class RegisteredUserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:student.create');
+    }
     /**
      * Display the registration view.
      */

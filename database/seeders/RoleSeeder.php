@@ -46,7 +46,7 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'grade.create'])->syncRoles([$teacher]);
         Permission::create(['name' => 'grade.update'])->syncRoles([$teacher]);
         Permission::create(['name' => 'grade.edit'])->syncRoles([$teacher]);
-        Permission::create(['name' => 'grade.index'])->syncRoles([$admin, $teacher, $student]);
+        Permission::create(['name' => 'grade.index'])->syncRoles([$teacher, $student]);
         Permission::create(['name' => 'grade.store'])->syncRoles([$teacher]);
         Permission::create(['name' => 'grade.show'])->syncRoles([$admin, $teacher, $student]);
         

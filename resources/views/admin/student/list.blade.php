@@ -54,6 +54,11 @@
                                 {{$student->rut}}
                             </td>
                             <td class="px-6 py-4">
+                                @foreach($courses as $course)
+                                @if($student->course_id == $course->id)
+                                {{$course->course}}
+                                @endif
+                                @endforeach
                             </td>
                             <td class="pr-2 py-4 flex justify-end items-end flex-col gap-3">
                                 <div class="flex w-24 text-center">
@@ -76,7 +81,6 @@
         <section class="w-full flex-1 p-5 flex flex-col gap-5 bg-white shadow-md rounded-lg h-96 overflow-y-scroll">
             @foreach($courses as $course)
             <div class="bg-gray-200 p-2 flex gap-3 items-center">
-                <input type="radio" name="course_id" value="{{$course->id}}">
                 {{$course->course}}
             </div>
             @endforeach

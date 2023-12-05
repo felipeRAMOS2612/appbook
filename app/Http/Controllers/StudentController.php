@@ -6,6 +6,7 @@ use App\Models\Course;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use App\Http\Requests\StudentRequest;
+use App\Models\CourseStudent;
 
 class StudentController extends Controller
 {
@@ -62,6 +63,21 @@ class StudentController extends Controller
         $data = $request->validated();
 
         $student->update($data);
+    
+        // Verificar si ya existe una relación para este estudiante en CourseStudent
+        $existingRelation = CourseStudent::where('student_id', $student->id)->first();
+    
+        if ($existingRelation) {
+            // Si ya existe, actualiza el curso existente
+            $existingRelation->update(['course_id' => $data['course_id']]);
+        } else {
+            // Si no existe, crea una nueva relación
+            CourseStudent::create([
+                "student_id" => $student->id,
+                "course_id" => $data['course_id']
+            ]);
+        }
+    
         return redirect()->route('student');
     }
 

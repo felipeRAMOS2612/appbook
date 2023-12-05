@@ -1,5 +1,5 @@
 <x-app-layout>
-    <form class="max-w-7xl mx-auto p-5 grid grid-cols-[70%_30%] gap-5" method="POST" action="{{route('student.update', $student)}}">
+    <form class="max-w-7xl mx-auto p-5 grid grid-cols-[70%_30%] gap-5" enctype="multipart/form-data" method="POST" action="{{route('student.update', $student)}}">
         @method('PATCH')
         @csrf
         <section class="w-full flex flex-col gap-5">
@@ -26,22 +26,32 @@
 
                 <div class="flex flex-col gap-1 justify-center">
                     <label class="text-start">Teléfono</label>
-                    <input type="text" value="{{$student->phone}}" class="h-8 rounded shadow border-gray-100" placeholder="Telefono" name="phone">
+                    <input 
+                    type="text" 
+                    value="{{$student->phone}}" 
+                    class="h-8 rounded shadow border-gray-100" 
+                    placeholder="Telefono" 
+                    name="phone">
                 </div>
 
                 <div class="flex flex-col gap-1 justify-center">
                     <label class="text-start">Dirección</label>
-                    <input type="text" value="{{$student->address}}" class="h-8 rounded shadow border-gray-100" placeholder="Dirección" name="address">
+                    <input 
+                    type="text" 
+                    value="{{$student->address}}" 
+                    class="h-8 rounded shadow border-gray-100" 
+                    placeholder="Dirección" 
+                    name="address">
                 </div>
             </div>
         </section>
 
         <section class="w-full flex-1 p-5 flex flex-col gap-5 bg-white shadow-md rounded-lg h-96 overflow-y-scroll">
             @foreach($courses as $course)
-            <div class="bg-gray-200 p-2 flex gap-3 items-center">
-                <input type="radio" name="course_id" value="{{$course->id}}">
-                {{$course->course}}
-            </div>
+                <div class="bg-gray-200 p-2 flex gap-3 items-center">
+                    <input type="radio" name="course_id" value="{{ $course->id }}" {{ $student->course_id == $course->id ? 'checked' : '' }} />
+                    {{ $course->course }}
+                </div>
             @endforeach
         </section>
 

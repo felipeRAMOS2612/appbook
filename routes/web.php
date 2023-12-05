@@ -7,6 +7,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\CourseStudentController;
 use App\Http\Controllers\GradeController;
+use App\Http\Controllers\MyGradeController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\SubjectTeacherController;
 use App\Http\Controllers\TeacherController;
@@ -60,6 +61,13 @@ Route::middleware([
     'can:teacher.destroy'])->group(function () {
         Route::resource('teacher', TeacherController::class);
 });
+
+Route::middleware([
+    'can:grade.index'
+])->group(function () {
+    Route::get('my-grade/{subject}', [MyGradeController::class, 'show']);
+    Route::get('select-subject', [MyGradeController::class, 'index']);
+    });
 
 Route::resource('subject-teacher', SubjectTeacherController::class);
 

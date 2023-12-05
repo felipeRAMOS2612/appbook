@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Grade;
+use App\Models\Course;
 use App\Models\Student;
 use App\Models\Subject;
 use App\Models\Teacher;
+use App\Models\Semester;
 use Illuminate\Http\Request;
 use App\Models\SubjectTeacher;
 use Illuminate\Support\Facades\Auth;
@@ -36,12 +38,18 @@ class GradeController extends Controller
     public function create()
     {
         $user = Auth::user();
-        $students = Student::all();
-        $teacher = Teacher::where('user_id', $user->id)->first();
-        $subjects = SubjectTeacher::where('teacher_id', $teacher->id)->pluck('teacher_id')->first();
+        $courses = Course::all();
+    $students = Student::all();
+    $semesters = Semester::all();
+    $teacher = Teacher::where('user_id', $user->id)->first();
 
+    // Obtén todos los IDs de subjects asociados a este profesor
+    $subjectIds = SubjectTeacher::where('teacher_id', $teacher->id)->pluck('subject_id')->toArray();
 
-        return view('grade.create', compact('students', 'teacher', 'subjects'));
+    // Obtén todos los subjects cuyos IDs están en la lista obtenida
+    $subjects = Subject::whereIn('id', $subjectIds)->get();
+
+        return view('grade.create', compact('students', 'teacher', 'subjects', 'semesters', 'courses'));
     }
 
     /**
@@ -61,8 +69,9 @@ class GradeController extends Controller
      */
     public function show(Grade $grade)
     {
+        $user = Auth::user();
         $subjects = Subject::all();
-        return view('grade.detail', compact('grade'));
+        return view('grade.detail', compact('grade', 'user'));
     }
 
     /**

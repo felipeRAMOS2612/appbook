@@ -1,0 +1,88 @@
+.container{
+    max-width: 780px;
+    height: 500px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+}
+h3{
+    text-align: center;
+    margin-bottom: 40px;
+    color: #777;
+}
+.container form div.step{
+    width: 700px;
+    position: absolute;
+    top: 100px;
+    left: 40px;
+    transition: 0.5s
+}
+form div input{
+    width: 100%;
+    padding: 10px 5px;
+    margin: 5px 0;
+    border: 0;
+    border-bottom: 1px solid #999;
+    outline: none;
+    background: transparent;
+}
+::placeholder{
+    color: #777;
+}
+.btn-box{
+    width: 100%;
+    margin: 30px auto;
+    text-align: center;
+}
+button#Previous2, button#Next2, button#Next1, button#Previous1, button#submit{
+    width: 40%;
+    height: 35px;
+    margin: 0 10px;
+    background: var(--primary-color) !important;
+    border-radius: 30px;
+    border: 0;
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+}
+#step2{
+    top: 550px;
+}
+#step3{
+    top: 500px;
+}
+.step-row{
+    width: 100%;
+    height: 40px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 -1px 5px -1px #000;
+    position: relative;
+}
+.step-col{
+    width: 40%;
+    text-align: center;
+    color: #333;
+    position: relative;
+}
+#progress{
+    position: absolute;
+    height: 100%;
+    width: 40%;
+    background: linear-gradient(to right, #008000,#ffad06);
+    transition: 1s;
+}
+#progress::after{
+    content: '';
+    height: 0;
+    width: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    position: absolute;
+    right: -20px;
+    top: 0;
+    border-left: 20px solid #ffad06;
+} 

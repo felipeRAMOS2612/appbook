@@ -25,7 +25,9 @@ class StudentRequest extends FormRequest
             "course_id"=>"required",
             "name"=>"required",
             "last_name"=>"required",
-            "email" => "required"
+            "email" => "required",
+            "phone" => "required",
+            "address" => "required"
         ];
     }
 }
