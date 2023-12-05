@@ -17,7 +17,7 @@
                 </h1>
 
         <div class="w-full flex gap-3">
-            <input type="text" name="grade" class="w-full" placeholder="Ingrese la nota del estudiante">
+            <input type="text" name="grade" class="w-full" placeholder="Ingrese nota del estudiante">
 
             <input type="submit" class="px-4 py-2 w-full bg-green-500 rounded text-white">
         </div>

@@ -14,6 +14,11 @@ use App\Providers\RouteServiceProvider;
 class GradeController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('can:grade.create')->only('create', 'store');
+    }
+
     /**
      * Display a listing of the resource.
      */

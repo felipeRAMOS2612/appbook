@@ -1,6 +1,12 @@
 <x-app-layout>
-    <main>
-        <form action="{{route('course-student.store')}}" method="POST">
-            
+    <main class="max-w-7xl mx-auto p-5">
+        <div>
+            <h1 class="text-3xl font-semibold">Curso: {{$course->course}}</h1>
+            <section>
+                <div>
+                    
+                </div>
+            </section>
+        </div>
     </main>
 </x-app-layout>

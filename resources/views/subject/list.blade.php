@@ -3,7 +3,7 @@
         <div class="flex justify-end">
             @can('subject.create')
             <a class="bg-blue-500 p-3 rounded text-white text-end" href="{{route('subject.create')}}">
-                CREAR ASIGNATURA
+                Crear asignatura
             </a>
             @endcan
         </div>

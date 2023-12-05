@@ -10,7 +10,7 @@
 
     <section class="flex flex-wrap justify-between [&>a]:min-w-[280px]">
         @can('student.create')
-        <a href="{{route('teacher.index')}}" class="bg-[#bababa] text-center grid grow flex-1 h-60 py-5">
+        <a href="{{route('teacher.index')}}" class="bg-[#696de0] text-center grid grow flex-1 h-60 py-5">
             <div>
                 <h1 class="text-5xl text-black font-semibold">Profesores</h1>
             </div>
@@ -21,7 +21,7 @@
             </div>
         </a>
         @endcan
-        @can('grade.index')
+        @can('grade.update')
         <a href="{{route('grade.index')}}" class="bg-[#696de0] text-center grid grow flex-1 h-60 py-5">
             <div>
                 <h1 class="text-5xl text-black font-semibold">Notas</h1>
@@ -46,7 +46,7 @@
         </a>
         @endcan
         @can('student.index')
-        <a href="{{route('student')}}" class="bg-[#bababa] grid text-center flex-1 grow h-60 py-5">
+        <a href="{{route('course-student.index')}}" class="bg-[#bababa] grid text-center flex-1 grow h-60 py-5">
             <div>
                 <h1 class="text-5xl text-black font-semibold">Estudiantes</h1>
             </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Course;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use App\Http\Requests\StudentRequest;
 
 class StudentController extends Controller
 {
@@ -13,7 +14,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $students = Student::with('course')->get();
+        $students = Student::all();
         $courses = Course::all();
         return view('admin.student.list', compact('students', 'courses'));
     }
@@ -49,15 +50,19 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
-        //
+        $courses = Course::all();
+        return view('admin.student.edit', compact('student', 'courses'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Student $student)
+    public function update(StudentRequest $request, Student $student)
     {
-        //
+        $data = $request->validated();
+
+        $student->update($data);
+        return redirect()->route('student');
     }
 
     /**

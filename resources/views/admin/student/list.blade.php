@@ -1,12 +1,20 @@
 <x-app-layout>
-    <div class="max-w-7xl mx-auto px-5 pt-5 flex w-full justify-end text-end">
+    <div class="max-w-7xl mx-auto px-5 pt-5 flex gap-5 w-full justify-end text-end">
         @can('student.create')
         <a href="{{route('student.create')}}" class="p-3 bg-blue-500 rounded text-white">
             Crear estudiante
         </a>
         @endcan
+
+        @can('student.create')
+        <a href="{{route('course-student.index')}}" class="p-3 bg-blue-500 rounded text-white">
+            Ver todos los cursos
+        </a>
+        @endcan
     </div>
-    <form class="max-w-7xl mx-auto p-5 grid grid-cols-[65%_35%] gap-5" method="POST" action="{{route('course-student.store')}}">
+    @foreach($students as $student)
+    <form class="max-w-7xl mx-auto p-5 grid grid-cols-[70%_30%] gap-5" method="POST" action="{{route('student.update', $student->id)}}">
+        @method('PUT')
         @csrf
         <section class="w-full flex flex-col gap-5">
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -30,7 +38,7 @@
                             </th>
                         </tr>
                     </thead>
-                    @foreach($students as $student)
+                    
                     <tbody>
                         <tr class="odd:bg-white even:bg-gray-50 border-b">
                             <td scope="row" class="px-6 ">
@@ -46,19 +54,21 @@
                                 {{$student->rut}}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $student->course[0]->course }}
                             </td>
                             <td class="pr-2 py-4 flex justify-end items-end flex-col gap-3">
                                 <div class="flex w-24 text-center">
-                                    <a href="#" class="w-full font-medium transition-all hover:scale-105 bg-green-500 p-2 text-white rounded">Edit</a>
+                                    <a 
+                                    href="{{route('student.edit', $student->id)}}" 
+                                    class="w-full font-medium transition-all hover:scale-105 bg-green-500 p-2 text-white rounded">Edit</a>
                                 </div>
                                 <div class="flex w-24 text-center">
-                                    <a href="#" class=" w-full font-medium transition-all hover:scale-105 bg-blue-500 p-2 text-white rounded">Ver detalle</a>
+                                    <a 
+                                    href="#" 
+                                    class="w-full font-medium transition-all hover:scale-105 bg-blue-500 p-2 text-white rounded">Ver detalle</a>
                                 </div>
                             </td>
                         </tr>
                     </tbody>
-                    @endforeach
                 </table>
             </div>
         </section>
@@ -78,4 +88,5 @@
             </button>
         </div>
     </form>
+    @endforeach
 </x-app-layout>

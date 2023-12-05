@@ -11,7 +11,7 @@ class Teacher extends Model
     
     use HasFactory;
 
-    public function subject()
+    public function subjects()
     {
         return $this->belongsToMany(Subject::class, 'subject_teachers');
     }
