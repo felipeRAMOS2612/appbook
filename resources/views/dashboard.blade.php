@@ -12,7 +12,7 @@
         @can('student.create')
         <a href="{{route('teacher.index')}}" class="bg-[#696de0] text-center grid grow flex-1 h-60 py-5">
             <div>
-                <h1 class="text-5xl text-black font-semibold">Profesores</h1>
+                <h1 class="text-5xl text-black font-semibold">Docentes</h1>
             </div>
             <div class=" w-full flex justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="102" height="97" viewBox="0 0 102 97" fill="none">
@@ -72,14 +72,102 @@
         @endcan
     </section>
 
-    <section class="flex mx-auto gap-5 p-12">
-        <div class="bg-gray-200 w-full p-5">
-            <h1>Noticias:</h1>
-        </div>
+    @role('admin')
+    <h1 class="text-4xl font-bold mt-12 mb-5 text-center">
+        ¿Que deseas hacer hoy?
+    </h1>
 
-        <div class="bg-gray-200 w-full p-5">
-            <h1>Servicios:</h1>
-        </div>
+    <section class="bg-gray-200 max-w-7xl text-white grid lg:grid-cols-4 grid-cols-2 gap-5 mx-auto rounded shadow p-5">
+        <a 
+        href="{{route('student.create')}}"
+        id="student-tab" 
+        class="bg-[var(--primary-color)] p-3 rounded hover:scale-105 transition-all hover:shadow-xl">
+            <div class="mx-auto rounded-full bg-white p-4 w-28 h-28 flex justify-center items-center">
+                <img
+                class="objet-contain"
+                width="100" 
+                height="100" 
+                src="https://img.icons8.com/external-konkapp-outline-color-konkapp/100/external-student-back-to-school-konkapp-outline-color-konkapp.png"/>
+            </div>
+            <h2 class="text-xl font-semibold text-center">Registrar estudiante</h2>
+        </a>
+
+        <a
+        href="{{route('teacher.create')}}"
+        id="teacher-tab"
+        class="bg-[var(--secondary-color)] p-3 rounded hover:scale-105 transition-all hover:shadow-xl">
+            <div class="mx-auto rounded-full bg-white p-3 w-28 h-28 flex justify-center items-center">
+                <img
+                class="object-contain"
+                width="100" 
+                height="100" 
+                src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/100/external-teacher-professions-flaticons-lineal-color-flat-icons-2.png"/>
+            </div>
+            <h2 class="text-xl font-semibold text-center">Registrar docente</h2>
+        </a>
+
+        <a 
+        href="{{route('subject.create')}}" 
+        class="bg-[var(--third-color)] p-3 rounded hover:scale-105 transition-all hover:shadow-xl">
+                <img
+                class="mx-auto"
+                width="100" 
+                height="100" 
+                src="https://img.icons8.com/external-smashingstocks-circular-smashing-stocks/100/external-white-board-education-smashingstocks-circular-smashing-stocks.png"/>
+
+            <h2 class="text-xl font-semibold text-center">Registrar asignatura</h2>
+        </a>
+
+        <a href="" class="bg-[var(--gray)] p-3 rounded hover:scale-105 transition-all hover:shadow-xl">
+            <div class="mx-auto rounded-full bg-white p-3 w-28 h-28 flex justify-center items-center">
+                <img
+                width="100" 
+                height="100" 
+                src="https://img.icons8.com/color/100/calendar--v1.png"/>
+            </div>
+            <h2 class="text-xl font-semibold text-center">Horario de clases</h2>
+        </a>
+
+        <a href="" class="bg-[var(--gray)] p-3 rounded hover:scale-105 transition-all hover:shadow-xl">
+            <div class="mx-auto rounded-full bg-white p-3 w-28 h-28 flex justify-center items-center">
+                <img
+                width="100"
+                height="100" 
+                src="https://img.icons8.com/3d-fluency/100/combo-chart.png"/>
+            </div>
+            <h2 class="text-xl font-semibold text-center">Grafico de rendimiento</h2>
+        </a>
+
+        <a href="" class="bg-[var(--primary-color)] p-3 rounded hover:scale-105 transition-all hover:shadow-xl">
+            <div class="mx-auto rounded-full bg-white p-4 w-28 h-28 flex justify-center items-center">
+                <img
+                width="100" 
+                height="100" 
+                src="https://img.icons8.com/external-xnimrodx-lineal-color-xnimrodx/100/external-paper-note-office-xnimrodx-lineal-color-xnimrodx.png"/>
+            </div>
+            <h2 class="text-xl font-semibold text-center">Anotaciones de estudiante</h2>
+        </a>
+
+        <a href="" class="bg-[var(--third-color)] p-3 rounded hover:scale-105 transition-all hover:shadow-xl">
+            <div class="mx-auto rounded-full bg-white p-3 w-28 h-28 flex justify-center items-center">
+                <img
+                width="100"
+                height="100"
+                src="https://img.icons8.com/color/100/checked-user-male--v1.png"/>
+            </div>
+            <h2 class="text-xl font-semibold text-center">Registro de asistencias</h2>
+        </a>
+
+        <a href="" class="bg-[var(--secondary-color)] p-3 rounded hover:scale-105 transition-all hover:shadow-xl">
+            <div class="mx-auto rounded-full bg-white p-4 w-28 h-28 flex justify-center items-center">
+                <img
+                width="100"
+                height="100"
+                src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/100/external-grades-online-education-flaticons-lineal-color-flat-icons.png"/>
+            </div>
+            <h2 class="text-xl font-semibold text-center">Ver calificaciones</h2>
+        </a>
     </section>
-
+    @endrole
+    <br>
 </x-app-layout>

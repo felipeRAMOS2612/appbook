@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="max-w-7xl mx-auto px-5 pt-5 flex w-full justify-end text-end">
         @can('teacher.create')
-        <a href="{{route('teacher.create')}}" class="p-3 bg-blue-500 rounded text-white">
+        <a href="{{route('teacher.create')}}" id="teacher-tab" class="p-3 bg-blue-500 rounded text-white">
             Crear profesor
         </a>
         @endcan

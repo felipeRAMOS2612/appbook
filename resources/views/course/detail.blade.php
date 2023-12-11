@@ -28,8 +28,8 @@
                     </thead>
                     
                     <tbody>
+                        @foreach($students as $student)
                         <tr class="odd:bg-white even:bg-gray-50 border-b">
-                            @foreach($students as $student)
                             <td scope="row" class="px-6 ">
                             </td>
                             <th scope="row" class="py-4 font-medium text-gray-900 whitespace-nowrap ">
@@ -61,8 +61,8 @@
                                 </div>
                             </td>
                             @endcan
-                            @endforeach
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </section>

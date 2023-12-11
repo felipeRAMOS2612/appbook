@@ -1,20 +1,18 @@
 <x-app-layout>
     <div class="max-w-7xl mx-auto px-5 pt-5 flex gap-5 w-full justify-end text-end">
         @can('student.create')
-        <a href="{{route('student.create')}}" class="p-3 bg-blue-500 rounded text-white">
+        <a href="{{route('student.create')}}" id="student-tab" class="hover:scale-105 transition-all p-3 bg-[var(--primary-color)] rounded text-white">
             Crear estudiante
         </a>
         @endcan
 
         @can('student.create')
-        <a href="{{route('course-student.index')}}" class="p-3 bg-blue-500 rounded text-white">
+        <a href="{{route('course-student.index')}}" class="hover:scale-105 transition-all p-3 bg-[var(--secondary-color)] rounded text-black">
             Ver todos los cursos
         </a>
         @endcan
     </div>
-    @foreach($students as $student)
-    <form class="max-w-7xl mx-auto p-5 grid grid-cols-[70%_30%] gap-5" method="POST" action="{{route('student.update', $student->id)}}">
-        @method('PUT')
+    <form class="max-w-7xl mx-auto p-5 grid grid-cols-[70%_30%] gap-5" method="POST">
         @csrf
         <section class="w-full flex flex-col gap-5">
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -40,6 +38,7 @@
                     </thead>
                     
                     <tbody>
+                        @foreach($students as $student)
                         <tr class="odd:bg-white even:bg-gray-50 border-b">
                             <td scope="row" class="px-6 ">
                                 <input type="radio" name="student_id" value="{{$student->id}}">
@@ -73,6 +72,7 @@
                                 </div>
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -92,5 +92,4 @@
             </button>
         </div>
     </form>
-    @endforeach
 </x-app-layout>

@@ -1,6 +1,13 @@
 <header class="h-16 bg-blue-100 flex items-center">
     <section class="w-full h-16 flex max-w-7xl mx-auto justify-between items-center">
-    <a class="" href="{{route('dashboard')}}">
+    <a 
+    @if(Auth::user())
+    href="{{
+    route('dashboard')
+    }}"
+    @else
+    href="{{ route('home') }}"
+    @endif">
         <img class="h-full w-32" src="/logo/Logo-color.png">
     </a>
     <div class="flex justify-end grow flex-1">

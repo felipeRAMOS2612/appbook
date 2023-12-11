@@ -8,7 +8,8 @@ export default defineConfig({
                 'resources/css/app.css',
                 'resources/js/app.js',
                 'resources/js/register-grade.js',
-                'resources/css/register-grade.css'
+                'resources/css/register-grade.css',
+                'resources/js/select-user-register-grade.js'
             ],
             refresh: true,
         }),

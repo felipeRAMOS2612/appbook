@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\Rules\RutValidationRule;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Validator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +25,7 @@ class AppServiceProvider extends ServiceProvider
         if ( app()->environment(['production'])) {
             URL::forceRootUrl(config('app.url'));
             URL::forceScheme('https');
+            Validator::extend('rut_validation_rule', [RutValidationRule::class, 'passes']);
         }
     }
 }
