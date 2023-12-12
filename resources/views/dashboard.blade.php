@@ -118,7 +118,7 @@
             <h2 class="text-xl font-semibold text-center">Registrar asignatura</h2>
         </a>
 
-        <a href="" class="bg-[var(--gray)] p-3 rounded hover:scale-105 transition-all hover:shadow-xl">
+        <a href="{{route('schedule.index')}}" class="bg-[var(--gray)] p-3 rounded hover:scale-105 transition-all hover:shadow-xl">
             <div class="mx-auto rounded-full bg-white p-3 w-28 h-28 flex justify-center items-center">
                 <img
                 width="100" 

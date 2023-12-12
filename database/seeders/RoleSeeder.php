@@ -46,9 +46,29 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'grade.create'])->syncRoles([$teacher]);
         Permission::create(['name' => 'grade.update'])->syncRoles([$teacher]);
         Permission::create(['name' => 'grade.edit'])->syncRoles([$teacher]);
-        Permission::create(['name' => 'grade.index'])->syncRoles([$teacher, $student]);
+        Permission::create(['name' => 'grade.index'])->syncRoles([$admin, $teacher, $student]);
         Permission::create(['name' => 'grade.store'])->syncRoles([$teacher]);
         Permission::create(['name' => 'grade.show'])->syncRoles([$admin, $teacher, $student]);
-        
+        Permission::create(['name' => 'parent.index'])->syncRoles([$admin, $teacher]);
+        Permission::create(['name' => 'parent.show'])->syncRoles([$admin, $teacher, $student]);
+        Permission::create(['name' => 'parent.create'])->syncRoles([$admin]);
+        Permission::create(['name' => 'parent.store'])->syncRoles([$admin]);
+        Permission::create(['name' => 'parent.edit'])->syncRoles([$admin]);
+        Permission::create(['name' => 'parent.update'])->syncRoles([$admin]);
+        Permission::create(['name' => 'parent.destroy'])->syncRoles([$admin]);
+        Permission::create(['name' => 'schedules.create'])->syncRoles([$admin]);
+        Permission::create(['name' => 'schedules.store'])->syncRoles([$admin]);
+        Permission::create(['name' => 'schedules.index'])->syncRoles([$admin, $teacher]);
+        Permission::create(['name' => 'schedules.show'])->syncRoles([$admin, $teacher, $student]);
+        Permission::create(['name' => 'schedules.edit'])->syncRoles([$admin]);
+        Permission::create(['name' => 'schedules.update'])->syncRoles([$admin]);
+        Permission::create(['name' => 'schedules.destroy'])->syncRoles([$admin]);
+        Permission::create(['name' => 'evaluation-day.index'])->syncRoles([$admin, $teacher]);
+        Permission::create(['name' => 'evaluation-day.show'])->syncRoles([$admin, $teacher, $student]);
+        Permission::create(['name' => 'evaluation-day.create'])->syncRoles([$admin, $teacher]);
+        Permission::create(['name' => 'evaluation-day.store'])->syncRoles([$admin, $teacher]);
+        Permission::create(['name' => 'evaluation-day.edit'])->syncRoles([$admin, $teacher]);
+        Permission::create(['name' => 'evaluation-day.update'])->syncRoles([$admin, $teacher]);
+        Permission::create(['name' => 'evaluation-day.destroy'])->syncRoles([$admin, $teacher]);
     }
 }

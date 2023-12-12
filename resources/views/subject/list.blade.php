@@ -8,9 +8,9 @@
             @endcan
         </div>
         <h1 class="my-5 text-4xl font-bold">Asignaturas</h1>
-        <div class="flex gap-10 flex-wrap w-full">
+        <div class="flex flex-col gap-10 flex-wrap w-full">
             @foreach ($subjects as $subject)
-            <div class="p-5 max-w-[250px] w-full bg-white border border-gray-200 hover:scale-105 transition-all rounded-lg shadow hover:bg-gray-100">
+            <div class="p-5 w-full bg-white border border-gray-200 hover:scale-105 transition-all rounded-lg shadow hover:bg-gray-100">
                 <div>
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">{{$subject->name}}</h5>
                 </div>

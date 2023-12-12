@@ -2,15 +2,16 @@
 
 use App\Models\CourseStudent;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GradeController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\MyGradeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
-use App\Http\Controllers\CourseStudentController;
-use App\Http\Controllers\GradeController;
-use App\Http\Controllers\MyGradeController;
 use App\Http\Controllers\SubjectController;
-use App\Http\Controllers\SubjectTeacherController;
 use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\ScheduleController;
+use App\Http\Controllers\CourseStudentController;
+use App\Http\Controllers\SubjectTeacherController;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,6 +76,7 @@ Route::resource('subject', SubjectController::class);
 
 Route::resource('grade', GradeController::class);
 
+Route::resource('schedule', ScheduleController::class);
 
 Route::resource('course-student', CourseStudentController::class);
 
